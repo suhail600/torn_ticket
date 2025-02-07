@@ -38,7 +38,7 @@ const TornTicket(
 
 | Torn Ticket                                                                                                          |
 |-----------------------------------------------------------------------------------------------------------------------------|
-|![screenshots](https://github.com/user-attachments/assets/5a10c0b9-92e3-4bb8-affc-cc6dc388c867)|
+|![screenshots](https://github.com/user-attachments/assets/1001b19b-1ed0-4890-a001-78edf4ac96e2)|
 
 
 
