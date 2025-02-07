@@ -1,13 +1,17 @@
-import '../torn_ticket.dart';
-export 'ticket_clipper.dart';
-export 'ticket_painter.dart';
+import 'package:flutter/material.dart';
+
+import 'ticket_clipper.dart';
+import 'ticket_painter.dart';
 
 /// A fully customizable torn ticket widget for Flutter applications.
 class TornTicket extends StatelessWidget {
   /// Creates a [TornTicket].
 
-  /// The child widget displayed inside the ticket.
-  final Widget? child;
+  /// The width of the ticket.
+  final double width;
+
+  /// The height of the ticket.
+  final double height;
 
   /// The radius of the corners of the ticket.
   final double borderRadius;
@@ -39,8 +43,8 @@ class TornTicket extends StatelessWidget {
   /// The background color of the ticket.
   final Color backgroundColor;
 
-  /// The background image of the ticket.
-  final Image? backgroundImage;
+  /// The background of the ticket.
+  final Widget? background;
 
   /// Margin around the child widget.
   final EdgeInsets margin;
@@ -48,17 +52,14 @@ class TornTicket extends StatelessWidget {
   /// Padding around the child widget.
   final EdgeInsetsGeometry padding;
 
-  /// The width of the ticket.
-  final double width;
-
-  /// The height of the ticket.
-  final double height;
-
   /// The blur intensity of the shadow.
   final double shadowBlur;
 
   /// The offset of the shadow.
   final Offset shadowOffset;
+
+  /// The child widget displayed inside the ticket.
+  final Widget? child;
 
   const TornTicket({
     super.key,
@@ -79,7 +80,7 @@ class TornTicket extends StatelessWidget {
     this.height = 400,
     this.shadowBlur = 3,
     this.shadowOffset = const Offset(0, 0.8),
-    this.backgroundImage,
+    this.background,
   })  : assert(width > 0, 'Width must be greater than 0'),
         assert(height > 0, 'Height must be greater than 0'),
         assert(cutoutPosition >= 0.05 && cutoutPosition <= 0.95,
@@ -117,23 +118,17 @@ class TornTicket extends StatelessWidget {
               ),
             ClipPath(
               clipper: clipper,
-              child: backgroundImage == null
-                  ? ColoredBox(
-                      color: backgroundColor,
-                      child: Padding(padding: padding, child: child),
-                    )
-                  : SizedBox(
-                      width: width,
-                      height: height,
-                      child: Stack(
-                        fit: StackFit.expand,
-                        children: [
-                          backgroundImage!,
-                          if (child != null)
-                            Padding(padding: padding, child: child),
-                        ],
-                      ),
-                    ),
+              child: ColoredBox(
+                color: backgroundColor,
+                child: Stack(
+                  alignment: Alignment.center,
+                  fit: StackFit.expand,
+                  children: [
+                    if (background != null) background!,
+                    if (child != null) Padding(padding: padding, child: child),
+                  ],
+                ),
+              ),
             ),
           ],
         ),

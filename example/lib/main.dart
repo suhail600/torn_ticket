@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:torn_ticket/torn_ticket.dart';
 
 void main() => runApp(const MyApp());
@@ -49,11 +50,6 @@ class TicketExampleScreen extends StatelessWidget {
               _header('Single Ticket Example'),
               const SizedBox(height: 10),
               _buildSingleTicketExample(),
-              const TornTicket(
-                child: Center(
-                  child: Text('Ticket #1'),
-                ),
-              ),
             ],
           ),
         ),

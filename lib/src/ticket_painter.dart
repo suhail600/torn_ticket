@@ -1,4 +1,5 @@
-import '../torn_ticket.dart';
+import 'package:flutter/material.dart';
+import 'ticket_clipper.dart';
 
 class TicketShadowPainter extends CustomPainter {
   final TicketClipper clipper;
