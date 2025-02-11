@@ -12,7 +12,7 @@ A Flutter package for creating fully customizable torn ticket widgets.
 
 ```yaml
 dependencies:
-  torn_ticket: ^0.0.1
+  torn_ticket: ^0.1.0
 ```
 
 
